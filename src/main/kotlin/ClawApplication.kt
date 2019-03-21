@@ -1,7 +1,7 @@
-class ClawApplication {
+class ClawApplication(val transition: Transition? = null) {
 
     private var screens = listOf<Screen>()
-    private var state = States.SCREEN
+    var state = States.SCREEN
     var currentScreen: Screen = Screen(clawApp = this)
 
     fun addScreen(screen: Screen) {
@@ -9,17 +9,26 @@ class ClawApplication {
     }
 
     fun usePortal(portal: Portal) {
+        //We can't move if we're already moving
         if(state == States.TRANSITION) return
 
-        state = States.TRANSITION
+        //Give the transition-er the two screens we're moving between, and start it
+        transition?.prevScreen = currentScreen
+        transition?.nextScreen = portal.destination
         currentScreen = portal.destination
-        state = States.SCREEN
+        transition?.start()
     }
 
     fun handleClick(x: Int, y: Int) {
         if(state == States.TRANSITION) return
 
         currentScreen.interactables.find { it.boundsContain(x = x, y = y) }?.onClick() ?: return
+    }
+
+    fun transition(deltaTime: Double) {
+        if(state != States.TRANSITION) return
+
+        transition?.transition(deltaTime)
     }
 
     override fun toString(): String {
