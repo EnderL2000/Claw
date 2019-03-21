@@ -1,0 +1,9 @@
+
+*.gradle
+*.class
+*.jar
+*.xml
+*.properties
+gradlew
+gradlew.bat
+*.kotlin_module
