@@ -12,7 +12,7 @@ as the middle man, collecting your input and then determining what your new game
 ### How do I use Claw?
 Luckily, Claw is simple to use (at least I think so). However, the current version requires heavy use of anonymous objects and lambda
 expressions to use elegantly. Claw can still be used without these more advanced features, at the expense of writing a few more lines 
-of code. You will see what I mean in some of the examples below.
+of code.
 
 ### The Claw method
 The goal of Claw is to essentially serve as the "backend" to a point and click adventure/puzzle game. You will need to provide input
@@ -31,7 +31,7 @@ could then be drawn based off of that `state`. Alternatively, `Item`s provide a 
 data type you wish to store (even null!). Feel free to mix and match data types. This is purely for making the development easier for 
 the game developer, Claw won't touch that data.
 
-##### So, how do I start?
+### So, how do I start?
 I wouldn't recommend using Claw in its current state. It has had limited testing and some parts will likely be subject to various 
 rewrites in the early stages of the project. If you decide you want to use it anyways, simply copy the files right into your project's
 main directory and get going. If you need any reference, everything (I hope) is covered in `ClawTest.kt`. A tutorial will come at a 
