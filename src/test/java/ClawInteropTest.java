@@ -60,11 +60,11 @@ public class ClawInteropTest {
         };
         basicLever.setState(false);
 
-        List<Event> conditionalButtonEvents = new LinkedList<Event>();
+        List<Event> conditionalButtonEvents = new LinkedList<>();
         conditionalButtonEvents.add(
                 new Event() {
                     public boolean conditionsMet() {
-                        return (boolean)basicLever.getState() == true;
+                        return (boolean)basicLever.getState();
                     }
                 }
         );
