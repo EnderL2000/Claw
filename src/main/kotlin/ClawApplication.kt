@@ -1,4 +1,4 @@
-class ClawApplication(var associations: Any? = null) {
+class ClawApplication {
 
     private var screens = listOf<Screen>()
     var state = States.SCREEN
