@@ -3,8 +3,7 @@ abstract class Interactable(
     val y1: Int,
     val x2: Int,
     val y2: Int,
-    val z: Int,
-    val associations: Any? = null
+    val z: Int
 ) {
     abstract fun onClick()
 
@@ -19,9 +18,8 @@ abstract class Item(
     y1: Int,
     x2: Int,
     y2: Int,
-    z: Int,
-    associations: Any? = null
-) : Interactable(x1, y1, x2, y2, z, associations) {
+    z: Int
+) : Interactable(x1, y1, x2, y2, z) {
 
     var state: Any? = null
 
@@ -34,8 +32,14 @@ abstract class Item(
     abstract fun useItem()
 }
 
-class Portal(val destination: Screen, x1: Int, y1: Int, x2: Int, y2: Int, z: Int, associations: Any? = null) :
-    Interactable(x1, y1, x2, y2, z, associations) {
+class Portal(
+    val destination: Screen,
+    x1: Int,
+    y1: Int,
+    x2: Int,
+    y2: Int,
+    z: Int
+) : Interactable(x1, y1, x2, y2, z) {
     override fun onClick() {
         destination.clawApp.usePortal(portal = this)
     }

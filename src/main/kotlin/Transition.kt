@@ -6,11 +6,14 @@ abstract class Transition(val clawApplication: ClawApplication) {
         clawApplication.transition = this
     }
 
-    open fun transition(deltaTime: Double) {
+    fun execute(deltaTime: Double) {
+        transition(deltaTime = deltaTime)
         if(isFinished()) {
             end()
         }
     }
+
+    open fun transition(deltaTime: Double) {}
 
     open fun start() {
         clawApplication.state = ClawApplication.States.TRANSITION

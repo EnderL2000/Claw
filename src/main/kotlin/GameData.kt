@@ -1,0 +1,1 @@
+data class GameData(val data: List<Pair<Any?, Any?>> = mutableListOf())

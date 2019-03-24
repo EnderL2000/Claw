@@ -4,9 +4,14 @@ class ClawApplication(var associations: Any? = null) {
     var state = States.SCREEN
     var currentScreen: Screen = Screen(clawApp = this)
     var transition: Transition? = null
+    val gameData = GameData()
 
     fun addScreen(screen: Screen) {
         screens = screens + screen
+    }
+
+    fun getScreenByName(name: String) : Screen? {
+        return screens.find { it.name == name }
     }
 
     fun usePortal(portal: Portal) {
@@ -32,7 +37,7 @@ class ClawApplication(var associations: Any? = null) {
         //Transition only if we're already transitioning
         if(state != States.TRANSITION) return
 
-        transition?.transition(deltaTime = deltaTime)
+        transition?.execute(deltaTime = deltaTime)
     }
 
     override fun toString(): String {
