@@ -1,4 +1,4 @@
-class Screen(val name: String = "", val clawApp: ClawApplication, val associations: List<Any?>? = listOf()) {
+class Screen(val name: String = "", val clawApp: ClawApplication, val associations: Any? = null) {
     var interactables = listOf<Interactable>()
 
     fun addPortal(portal: Portal) {

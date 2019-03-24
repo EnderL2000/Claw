@@ -4,7 +4,7 @@ class ClawApplication {
     var state = States.SCREEN
     var currentScreen: Screen = Screen(clawApp = this)
     var transition: Transition? = null
-    var associations: List<Any?> = listOf()
+    var associations: Any? = null
 
     fun addScreen(screen: Screen) {
         screens = screens + screen
