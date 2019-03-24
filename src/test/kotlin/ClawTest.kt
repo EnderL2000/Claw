@@ -2,7 +2,7 @@ fun main() {
     ClawTest(verbose = true).run()
 }
 
-class ClawTest(val verbose: Boolean = false) {
+class ClawTest(private val verbose: Boolean = false) {
 
     private val clawApplication = ClawApplication()
 

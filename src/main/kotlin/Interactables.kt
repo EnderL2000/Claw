@@ -1,4 +1,4 @@
-abstract class Interactable(val x1: Int, val y1: Int, val x2: Int, val y2: Int, val z: Int, val associations: List<Any?> = listOf()) {
+abstract class Interactable(val x1: Int, val y1: Int, val x2: Int, val y2: Int, val z: Int, val associations: List<Any?>? = listOf()) {
     abstract fun onClick()
 
     fun boundsContain(x: Int, y: Int) : Boolean {
@@ -6,7 +6,7 @@ abstract class Interactable(val x1: Int, val y1: Int, val x2: Int, val y2: Int, 
     }
 }
 
-abstract class Item(var preconditions: List<Event> = listOf(), x1: Int, y1: Int, x2: Int, y2: Int, z: Int, associations: List<Any?> = listOf()) : Interactable(x1, y1, x2, y2, z, associations) {
+abstract class Item(var preconditions: List<Event> = listOf(), x1: Int, y1: Int, x2: Int, y2: Int, z: Int, associations: List<Any?>? = listOf()) : Interactable(x1, y1, x2, y2, z, associations) {
 
     var state: Any? = null
 
@@ -19,7 +19,7 @@ abstract class Item(var preconditions: List<Event> = listOf(), x1: Int, y1: Int,
     abstract fun useItem()
 }
 
-class Portal(val destination: Screen, x1: Int, y1: Int, x2: Int, y2: Int, z: Int, associations: List<Any?> = listOf()) : Interactable(x1, y1, x2, y2, z, associations) {
+class Portal(val destination: Screen, x1: Int, y1: Int, x2: Int, y2: Int, z: Int, associations: List<Any?>? = listOf()) : Interactable(x1, y1, x2, y2, z, associations) {
     override fun onClick() {
         destination.clawApp.usePortal(portal = this)
     }
