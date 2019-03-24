@@ -1,23 +1,24 @@
 fun main() {
-    ClawTest().run()
+    ClawTest(verbose = true).run()
 }
 
-class ClawTest {
+class ClawTest(val verbose: Boolean = false) {
 
     private val clawApplication = ClawApplication()
+
     private val transitionEngine = object : Transition(clawApplication = clawApplication) {
         override fun transition(deltaTime: Double) {
-            println("Transitioning...")
+            if (verbose) println("Transitioning...")
             super.transition(deltaTime = deltaTime)
         }
 
         override fun start() {
-            println("Transition Started")
+            if (verbose) println("Transition Started")
             super.start()
         }
 
         override fun end() {
-            println("Transition Ended")
+            if (verbose) println("Transition Ended")
             super.end()
         }
 
@@ -59,7 +60,6 @@ class ClawTest {
             addPortal(portal = Portal(destination = twoWayScreen, x1 = 20, y1 = 20, x2 = 80, y2 = 80, z = 0))
             addItem(basicLever)
         }
-        println(basicScreen.interactables)
 
         twoWayScreen.apply {
             addPortal(portal = Portal(destination = basicScreen, x1 = 0, y1 = 0, x2 = 49, y2 = 100, z = 0))
@@ -80,82 +80,82 @@ class ClawTest {
 
         clawApplication.currentScreen = startScreen
 
-        println(clawApplication) //Start
+        if (verbose) println(clawApplication) //Start
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 0, y = 0)
-        println(clawApplication) //Basic
+        if (verbose) println(clawApplication) //Basic
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 0, y = 0)
-        println(clawApplication) //Basic
-        println("Lever flipped: ${basicLever.state}") //false
+        if (verbose) println(clawApplication) //Basic
+        if (verbose) println("Lever flipped: ${basicLever.state}") //false
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 50, y = 50)
-        println(clawApplication) //Two Way
+        if (verbose) println(clawApplication) //Two Way
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 75, y = 50)
-        println(clawApplication) //Back
+        if (verbose) println(clawApplication) //Back
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 50, y = 50)
-        println(clawApplication) //Two Way
-        println("Condition Button: ${conditionalButton.state}") //Not Pressed
+        if (verbose) println(clawApplication) //Two Way
+        if (verbose) println("Condition Button: ${conditionalButton.state}") //Not Pressed
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 30, y = 30)
-        println(clawApplication) //Two Way
+        if (verbose) println(clawApplication) //Two Way
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 25, y = 50)
-        println(clawApplication) //Basic
+        if (verbose) println(clawApplication) //Basic
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 25, y = 25)
-        println(clawApplication) //Basic
-        println("Lever flipped: ${basicLever.state}") //true
+        if (verbose) println(clawApplication) //Basic
+        if (verbose) println("Lever flipped: ${basicLever.state}") //true
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 50, y = 50)
-        println(clawApplication) //Two Way
+        if (verbose) println(clawApplication) //Two Way
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 75, y = 50)
-        println(clawApplication) //Back
+        if (verbose) println(clawApplication) //Back
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 50, y = 50)
-        println(clawApplication) //Back
-        println("Condition Button: ${conditionalButton.state}") //Pressed
+        if (verbose) println(clawApplication) //Back
+        if (verbose) println("Condition Button: ${conditionalButton.state}") //Pressed
 
         clawApplication.update(deltaTime = 0.0)
-        println()
+        if (verbose) println()
 
         clawApplication.handleClick(x = 20, y = 20)
-        println(clawApplication) //Final
+        if (verbose) println(clawApplication) //Final
     }
 }
