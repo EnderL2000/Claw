@@ -1,8 +1,9 @@
-class ClawApplication(val transition: Transition? = null) {
+class ClawApplication() {
 
     private var screens = listOf<Screen>()
     var state = States.SCREEN
     var currentScreen: Screen = Screen(clawApp = this)
+    var transition: Transition? = null
 
     fun addScreen(screen: Screen) {
         screens = screens + screen
