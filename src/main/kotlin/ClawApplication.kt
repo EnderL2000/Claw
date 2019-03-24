@@ -23,10 +23,12 @@ class ClawApplication() {
     fun handleClick(x: Int, y: Int) {
         if(state == States.TRANSITION) return
 
+        //Get the object in the top most z-layer and call its onClick
         currentScreen.interactables.find { it.boundsContain(x = x, y = y) }?.onClick() ?: return
     }
 
-    fun transition(deltaTime: Double) {
+    fun update(deltaTime: Double) {
+        //Transition only if we're already transitioning
         if(state != States.TRANSITION) return
 
         transition?.transition(deltaTime)
