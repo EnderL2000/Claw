@@ -1,9 +1,10 @@
-class ClawApplication() {
+class ClawApplication {
 
     private var screens = listOf<Screen>()
     var state = States.SCREEN
     var currentScreen: Screen = Screen(clawApp = this)
     var transition: Transition? = null
+    var associations: List<Any?> = listOf()
 
     fun addScreen(screen: Screen) {
         screens = screens + screen
@@ -21,6 +22,7 @@ class ClawApplication() {
     }
 
     fun handleClick(x: Int, y: Int) {
+        //Don't handle input if transitioning
         if(state == States.TRANSITION) return
 
         //Get the object in the top most z-layer and call its onClick
@@ -31,7 +33,7 @@ class ClawApplication() {
         //Transition only if we're already transitioning
         if(state != States.TRANSITION) return
 
-        transition?.transition(deltaTime)
+        transition?.transition(deltaTime = deltaTime)
     }
 
     override fun toString(): String {

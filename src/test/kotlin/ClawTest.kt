@@ -5,10 +5,10 @@ fun main() {
 class ClawTest {
 
     private val clawApplication = ClawApplication()
-    private val transitionEngine = object : Transition(clawApplication) {
+    private val transitionEngine = object : Transition(clawApplication = clawApplication) {
         override fun transition(deltaTime: Double) {
             println("Transitioning...")
-            super.transition(deltaTime)
+            super.transition(deltaTime = deltaTime)
         }
 
         override fun start() {
@@ -82,77 +82,77 @@ class ClawTest {
 
         println(clawApplication) //Start
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 0, y = 0)
         println(clawApplication) //Basic
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 0, y = 0)
         println(clawApplication) //Basic
         println("Lever flipped: ${basicLever.state}") //false
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 50, y = 50)
         println(clawApplication) //Two Way
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 75, y = 50)
         println(clawApplication) //Back
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 50, y = 50)
         println(clawApplication) //Two Way
         println("Condition Button: ${conditionalButton.state}") //Not Pressed
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 30, y = 30)
         println(clawApplication) //Two Way
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 25, y = 50)
         println(clawApplication) //Basic
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 25, y = 25)
         println(clawApplication) //Basic
         println("Lever flipped: ${basicLever.state}") //true
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 50, y = 50)
         println(clawApplication) //Two Way
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 75, y = 50)
         println(clawApplication) //Back
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 50, y = 50)
         println(clawApplication) //Back
         println("Condition Button: ${conditionalButton.state}") //Pressed
 
-        clawApplication.update(0.0)
+        clawApplication.update(deltaTime = 0.0)
         println()
 
         clawApplication.handleClick(x = 20, y = 20)
