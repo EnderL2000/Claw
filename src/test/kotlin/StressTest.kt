@@ -1,17 +1,18 @@
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlin.system.measureTimeMillis
 
 const val repeatTimes: Int = 100000
 
 fun main() {
-    val startTime = System.currentTimeMillis()
-    runBlocking {
-        repeat(repeatTimes) {
-            launch {
-                ClawTest(verbose = false).run()
+    val timeMillis = measureTimeMillis {
+        runBlocking {
+            repeat(repeatTimes) {
+                launch {
+                    ClawTest(verbose = false).run()
+                }
             }
         }
     }
-    val endTime = System.currentTimeMillis()
-    println("Took ${endTime - startTime} millis to run $repeatTimes simulations!")
+    println("Took $timeMillis millis to run $repeatTimes simulations!")
 }
