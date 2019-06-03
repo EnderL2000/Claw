@@ -1,10 +1,8 @@
-class ClawApplication {
-
+class ClawApplication(val name: String = "") {
     private var screens = listOf<Screen>()
     var state = States.SCREEN
     var currentScreen: Screen = Screen(clawApp = this)
     var transition: Transition? = null
-    val gameData = GameData()
 
     fun addScreen(screen: Screen) {
         screens = screens + screen
@@ -30,7 +28,7 @@ class ClawApplication {
         if(state == States.TRANSITION) return
 
         //Get the object in the top most z-layer and call its onClick
-        currentScreen.interactables.find { it.boundsContain(x = x, y = y) }?.onClick() ?: return
+        currentScreen.interactables.find { it.boundsContain(x = x, y = y) }?.onClick()
     }
 
     fun update(deltaTime: Double) {

@@ -7,7 +7,7 @@ const val repeatTimes: Int = 100000
 fun main() {
     val timeMillis = measureTimeMillis {
         runBlocking {
-            repeat(repeatTimes) {
+            repeat(times = repeatTimes) {
                 launch {
                     ClawTest(verbose = false).run()
                 }

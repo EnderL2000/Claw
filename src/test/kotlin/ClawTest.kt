@@ -43,10 +43,13 @@ class ClawTest(private val verbose: Boolean = false) {
         }.apply { state = false }
 
         val conditionalButton: Item = object : Item(x1 = 40, y1 = 40, x2 = 60, y2 = 60, z = 1,
-            preconditions = listOf<Event>(object : Event() { override fun conditionsMet(): Boolean { return basicLever.state == true } }))
-        {
+            preconditions = listOf<Event>(object : Event() {
+                override fun conditionsMet(): Boolean { return basicLever.state == true }
+            })) {
             override fun useItem() {
-                backScreen.addPortal(portal = Portal(destination = finalScreen, x1 = 20, y1 = 20, x2 = 80, y2 = 80, z = 1))
+                backScreen.addPortal(
+                    portal = Portal(destination = finalScreen, x1 = 20, y1 = 20, x2 = 80, y2 = 80, z = 1)
+                )
                 this.state = "Pressed"
             }
         }.apply { state = "Not Pressed" }
@@ -58,7 +61,7 @@ class ClawTest(private val verbose: Boolean = false) {
 
         basicScreen.apply {
             addPortal(portal = Portal(destination = twoWayScreen, x1 = 20, y1 = 20, x2 = 80, y2 = 80, z = 0))
-            addItem(basicLever)
+            addItem(item = basicLever)
         }
 
         twoWayScreen.apply {

@@ -1,4 +1,4 @@
-open class Screen(val name: String = "", val clawApp: ClawApplication, val associations: Any? = null) {
+open class Screen(val name: String = "", val clawApp: ClawApplication) {
     var interactables = listOf<Interactable>()
 
     fun addPortal(portal: Portal) {

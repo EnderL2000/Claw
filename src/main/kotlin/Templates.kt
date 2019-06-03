@@ -1,7 +1,9 @@
+@file:Suppress("unused")
+
 class OneDirectionalScreen(name: String = "", clawApp: ClawApplication): Screen(name, clawApp)
 
 class ToggleButton(preconditions: List<Event> = listOf(), x1: Int, y1: Int, x2: Int, y2: Int, z: Int):
-    Item(x1 = x1, y1 = y1, x2 = x2, y2 = y2, z = z) {
+    Item(preconditions = preconditions, x1 = x1, y1 = y1, x2 = x2, y2 = y2, z = z) {
 
     init {
         this.state = false
@@ -13,7 +15,7 @@ class ToggleButton(preconditions: List<Event> = listOf(), x1: Int, y1: Int, x2: 
 }
 
 class OneTimeLever(preconditions: List<Event> = listOf(), x1: Int, y1: Int, x2: Int, y2: Int, z: Int):
-    Item(x1 = x1, y1 = y1, x2 = x2, y2 = y2, z = z) {
+    Item(preconditions = preconditions, x1 = x1, y1 = y1, x2 = x2, y2 = y2, z = z) {
 
     init {
         this.state = false

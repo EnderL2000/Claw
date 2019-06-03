@@ -52,7 +52,7 @@ public class ClawInteropTest {
         final Screen backScreen = new Screen("Back", clawApplication, null);
         final Screen finalScreen = new Screen("Final", clawApplication, null);
 
-        Item basicLever = new Item(new LinkedList<>(), 20, 20, 30, 30, 1, null) {
+        Item basicLever = new Item(new LinkedList<>(), 20, 20, 30, 30, 1) {
             @Override
             public void useItem() {
                 setState(true);
@@ -69,24 +69,24 @@ public class ClawInteropTest {
                 }
         );
 
-        Item conditionalButton = new Item(conditionalButtonEvents, 40, 40, 60, 60, 1, null) {
+        Item conditionalButton = new Item(conditionalButtonEvents, 40, 40, 60, 60, 1) {
             @Override
             public void useItem() {
-                backScreen.addPortal(new Portal(finalScreen, 20, 20, 80, 80, 1, null));
+                backScreen.addPortal(new Portal(finalScreen, 20, 20, 80, 80, 1));
                 setState("Pressed");
             }
         };
         conditionalButton.setState("Not Pressed");
 
-        startScreen.addPortal(new Portal(basicScreen, 0, 0, 100, 100, 0, null));
+        startScreen.addPortal(new Portal(basicScreen, 0, 0, 100, 100, 0));
 
-        basicScreen.addPortal(new Portal(twoWayScreen, 20, 20, 80, 80, 0, null));
+        basicScreen.addPortal(new Portal(twoWayScreen, 20, 20, 80, 80, 0));
         basicScreen.addItem(basicLever);
 
-        twoWayScreen.addPortal(new Portal(basicScreen, 0, 0, 49, 100, 0, null));
-        twoWayScreen.addPortal(new Portal(backScreen, 50, 0, 100, 100, 0, null));
+        twoWayScreen.addPortal(new Portal(basicScreen, 0, 0, 49, 100, 0));
+        twoWayScreen.addPortal(new Portal(backScreen, 50, 0, 100, 100, 0));
 
-        backScreen.addPortal(new Portal(twoWayScreen, 20, 20, 80, 80, 0, null));
+        backScreen.addPortal(new Portal(twoWayScreen, 20, 20, 80, 80, 0));
         backScreen.addItem(conditionalButton);
 
         clawApplication.addScreen(startScreen);
